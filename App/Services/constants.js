@@ -1,0 +1,1 @@
+export const BASE_URL = "https://bengalrowingclub.keylines.in/index.php/api/"
