@@ -34,7 +34,23 @@ const App = () => {
   }
 
   const onGetStoreData = async () => {
+    let userdata = await getUserData();
+    console.log('UserData', userdata);
+    if (userdata) {
+      setState(prevState => ({
+        ...prevState,
+        userdata: userdata,
+        // isLogin: true
+      }))
+    } else {
+      setState(prevState => ({
+        ...prevState,
+        userdata: null,
+        // isLogin: false
+      }))
+    }
     let accesstoken = await getAccessToken();
+    console.log('token', accesstoken)
     if (accesstoken) {
       setState(prevState => ({
         ...prevState,
@@ -46,20 +62,6 @@ const App = () => {
         ...prevState,
         isLogin: false,
         accesstoken: null
-      }))
-    }
-    let userdata = await getUserData();
-    if (userdata) {
-      setState(prevState => ({
-        ...prevState,
-        userdata: userdata,
-        isLogin: true
-      }))
-    } else {
-      setState(prevState => ({
-        ...prevState,
-        userdata: null,
-        isLogin: false
       }))
     }
   }

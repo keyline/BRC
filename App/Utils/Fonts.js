@@ -1,4 +1,4 @@
-export const Front_Family = {
+export const Font_Family = {
     NunitoSans_Black: "NunitoSans-Black",
     NunitoSans_BlackItalic: "NunitoSans-BlackItalic",
     NunitoSans_Bold: "NunitoSans-Bold",

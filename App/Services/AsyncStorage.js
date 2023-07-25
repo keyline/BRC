@@ -29,7 +29,7 @@ export const getUserData = async () => {
     }
 }
 
-export const setAccessToken = async () => {
+export const setAccessToken = async (data) => {
     try {
         await AsyncStorage.setItem('accessToken', data);
         return true;

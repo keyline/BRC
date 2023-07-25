@@ -19,7 +19,7 @@ const ProfileStack = () => (
 
 const DrawerStack = () => {
   return (
-    <Drawer.Navigator >
+    <Drawer.Navigator screenOptions={{ headerShown: false }}>
       <Drawer.Screen name='ProfileStack' component={ProfileStack} />
       {/* <Drawer.Screen name='MyProfile' component={MyProfile} /> */}
       {/* <Drawer.Screen name='EditProfile' component={EditProfile} /> */}

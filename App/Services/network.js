@@ -24,6 +24,10 @@ export const Network = (method, endpoint, data = {}) => {
                 },
                 data: JSON.stringify(data)
             }
+            if (__DEV__) {
+                console.log('EndPoint ', endpoint);
+                console.log('PayLoad ', JSON.stringify(data));
+            }
             axios.request(config)
                 .then((response) => {
                     if (response.data) {

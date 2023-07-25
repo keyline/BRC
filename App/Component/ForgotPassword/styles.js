@@ -1,5 +1,6 @@
 import { StyleSheet, Platform } from 'react-native'
 import { Colors } from '../../Utils/Colors'
+import { Font_Family } from '../../Utils/Fonts'
 
 export const styles = StyleSheet.create({
     container: {
@@ -86,5 +87,7 @@ export const styles = StyleSheet.create({
         color: Colors.text_color,
         marginLeft: 15,
         width: '85%',
+        fontFamily:Font_Family.NunitoSans_Regular
+
     },
 })

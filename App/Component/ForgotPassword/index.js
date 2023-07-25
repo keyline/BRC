@@ -4,6 +4,10 @@ import { styles } from './styles'
 import { ImagePath } from '../../Utils/ImagePath'
 import SingleButton from '../../Container/SingleButton'
 import { CommonStyle } from '../../Utils/CommonStyles'
+import { isValidEmail } from '../../Services/Valid'
+import Apis from '../../Services/apis'
+import { KEY, SOURCE } from '../../Services/constants'
+import Toast from 'react-native-simple-toast';
 
 const ForgotPassword = ({ navigation }) => {
 
@@ -15,12 +19,53 @@ const ForgotPassword = ({ navigation }) => {
     })
 
     const onSubmit = useCallback(async () => {
-        // setState(prevState => ({
-        //     ...prevState,
-        //     loading: true
-        // }))
-        // navigation.goBack();
-        navigation.navigate('Login')
+        if (state.email.trim() == "") {
+            setState(prevState => ({
+                ...prevState,
+                emailErr: 'error'
+            }))
+        } else if (!isValidEmail(state.email)) {
+            setState(prevState => ({
+                ...prevState,
+                emailErrname: 'Enter a Valid Email'
+            }))
+        } else {
+            try {
+                setState(prevState => ({
+                    ...prevState,
+                    loading: true
+                }))
+                let datas = {
+                    key: KEY,
+                    source: SOURCE,
+                    email: state.email
+                }
+                const response = await Apis.forgot_password(datas);
+                if (__DEV__) {
+                    console.log('ForgotResponse', JSON.stringify(response))
+                }
+                setState(prevState => ({
+                    ...prevState,
+                    email: '',
+                    loading: false
+                }))
+                Toast.show(response.message, Toast.LONG);
+                if (response.status) {
+                    // navigation.goBack();
+                    navigation.navigate('Login')
+                }
+            } catch (error) {
+                setState(prevState => ({
+                    ...prevState,
+                    email: '',
+                    loading: false
+                }))
+                if (__DEV__) {
+                    console.log(error)
+                }
+                Toast.show('Something Went Wrong', Toast.LONG);
+            }
+        }
     })
 
     return (

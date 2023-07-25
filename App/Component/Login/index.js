@@ -1,12 +1,16 @@
-import { Text, View, Image, TextInput, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, ScrollView } from 'react-native'
+import { Text, View, Image, TextInput, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, ScrollView, Platform } from 'react-native'
 import React, { useCallback, useContext, useState } from 'react'
 import { styles } from './styles'
 import { ImagePath } from '../../Utils/ImagePath'
 import { Colors } from '../../Utils/Colors'
 import SingleButton from '../../Container/SingleButton'
 import { CommonStyle } from '../../Utils/CommonStyles'
-import { setUserData } from '../../Services/AsyncStorage'
+import { setAccessToken, setUserData } from '../../Services/AsyncStorage'
 import AuthContext from '../../Services/Context'
+import DeviceInfo from 'react-native-device-info'
+import { KEY, SOURCE } from '../../Services/constants'
+import Apis from '../../Services/apis'
+import Toast from 'react-native-simple-toast';
 
 const Login = ({ navigation }) => {
 
@@ -46,20 +50,50 @@ const Login = ({ navigation }) => {
             }));
             return;
         } else {
-            let datas = {
-                username: state.username,
-                password: state.password
+            try {
+                setState(prevState => ({
+                    ...prevState,
+                    loading: true
+                }))
+                let deviceId = DeviceInfo.getDeviceId();
+                let datas = {
+                    key: KEY,
+                    source: SOURCE,
+                    membership_no: state.username,
+                    password: state.password,
+                    device_token: deviceId
+                }
+                const response = await Apis.sign_in(datas)
+                if (__DEV__) {
+                    console.log('SignInResponse', JSON.stringify(response));
+                }
+                if (response.status) {
+                    await setUserData(response.data);
+                    await setAccessToken(response.data.app_access_token);
+                    context.onGetStoreData();
+                    setState(prevState => ({
+                        ...prevState,
+                        loading: false
+                    }))
+                    Toast.show(response.message, Toast.LONG);
+                } else {
+                    setState(prevState => ({
+                        ...prevState,
+                        loading: false
+                    }))
+                    Toast.show(response.message, Toast.LONG);
+                }
+
+            } catch (error) {
+                setState(prevState => ({
+                    ...prevState,
+                    loading: false
+                }))
+                if (__DEV__) {
+                    console.log(error)
+                }
+                Toast.show('Something Went Wrong', Toast.LONG);
             }
-            let val = await setUserData(datas)
-            if (val) {
-                context.onGetStoreData();
-            } else {
-                console.log('Login Error')
-            }
-            // setState(prevState => ({
-            //     ...prevState,
-            //     loading: true
-            // }))
 
         }
     })

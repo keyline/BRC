@@ -1,5 +1,6 @@
 import { StyleSheet, Platform } from 'react-native'
 import { Colors } from '../../Utils/Colors'
+import { Font_Family } from '../../Utils/Fonts'
 
 export const styles = StyleSheet.create({
     container: {
@@ -11,7 +12,7 @@ export const styles = StyleSheet.create({
         width: '90%',
         alignSelf: 'center',
         borderRadius: 20,
-        marginTop: '55%',
+        marginTop: '50%',
         marginBottom: '5%',
         paddingBottom: '15%',
         borderColor: Colors.lightGrey,
@@ -73,7 +74,7 @@ export const styles = StyleSheet.create({
         borderRadius: 30,
         borderColor: Colors.border_color,
         flexDirection: 'row',
-        paddingHorizontal: 15,
+        paddingHorizontal: '6%',
         alignItems: 'center'
     },
     inputimg: {
@@ -85,6 +86,7 @@ export const styles = StyleSheet.create({
         color: Colors.text_color,
         marginLeft: 15,
         width: '85%',
+        fontFamily:Font_Family.NunitoSans_Regular
     },
     eyeicon: {
         width: 25,
@@ -96,7 +98,8 @@ export const styles = StyleSheet.create({
         marginVertical: 15,
         alignSelf: 'flex-end',
         marginHorizontal: 35,
-        fontWeight: 'bold',
-        color: Colors.black
+        // fontWeight: 'bold',
+        color: Colors.black,
+        fontFamily:Font_Family.NunitoSans_Bold
     },
 })
