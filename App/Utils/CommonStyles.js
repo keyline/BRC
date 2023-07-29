@@ -26,10 +26,10 @@ export const CommonStyle = StyleSheet.create({
             }
         }),
     },
-    border:{
-        borderColor:Colors.border_grey,
-        borderWidth:0.8,
-        width:WIDTH*0.75,
-        alignSelf:'center'
+    border: {
+        borderColor: Colors.border_grey,
+        borderWidth: 0.8,
+        width: WIDTH * 0.75,
+        alignSelf: 'center'
     }
 })

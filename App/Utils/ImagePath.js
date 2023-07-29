@@ -5,5 +5,6 @@ export const ImagePath = {
     eye_on: require('../assets/Image/eye_on.png'),
     eye_off: require('../assets/Image/eye_off.png'),
     email: require('../assets/Image/email.png'),
-    menu: require('../assets/Image/menu.png')
+    menu: require('../assets/Image/menu.png'),
+    calendar:require('../assets/Image/calendar.png')
 }

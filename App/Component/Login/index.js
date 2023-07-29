@@ -109,7 +109,7 @@ const Login = ({ navigation }) => {
                         <View style={styles.inputcontent}>
                             <Image source={ImagePath.user} style={styles.inputimg} />
                             <TextInput
-                                placeholder='UserName'
+                                placeholder='Username'
                                 style={styles.input}
                                 onChangeText={(e) => setState(prevState => ({
                                     ...prevState,
@@ -120,7 +120,7 @@ const Login = ({ navigation }) => {
                         </View>
                         {state.usernameErr && (
                             <View style={{ width: '75%', marginTop: '1.5%' }}>
-                                <Text style={CommonStyle.errName}>Enter Your UserName</Text>
+                                <Text style={CommonStyle.errName}>Enter Your Username</Text>
                             </View>
                         )}
                         <View style={[styles.inputcontent, { marginTop: 30 }]}>

@@ -54,14 +54,14 @@ const App = () => {
     if (accesstoken) {
       setState(prevState => ({
         ...prevState,
-        isLogin: true,
-        accesstoken: accesstoken
+        accesstoken: accesstoken,
+        isLogin: true
       }))
     } else {
       setState(prevState => ({
         ...prevState,
-        isLogin: false,
-        accesstoken: null
+        accesstoken: null,
+        isLogin: false
       }))
     }
   }

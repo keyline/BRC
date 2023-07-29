@@ -10,6 +10,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import Apis from '../../Services/apis';
 import Loader from '../../Container/Loader';
 import { CommonStyle } from '../../Utils/CommonStyles';
+import MultiPleButton from '../../Container/MultiPleButton';
 
 const MyProfile = ({ navigation }) => {
 
@@ -75,6 +76,14 @@ const MyProfile = ({ navigation }) => {
         </View>
     )
 
+    const onEdit = useCallback(async () => {
+        navigation.navigate('EditProfile')
+    })
+
+    const onChngPassword = useCallback(async () => {
+        navigation.navigate('ChangePassword')
+    })
+
     return (
         <SafeAreaView style={styles.container}>
             <Header navigation={navigation} />
@@ -105,6 +114,15 @@ const MyProfile = ({ navigation }) => {
                                     <View style={styles.infocontent}>
                                         <NameValue name={'Residence'} value={state?.userdata?.Residence_Address} />
                                         <NameValue name={'Phone'} value={state?.userdata?.Phone} />
+                                    </View>
+                                    <View style={CommonStyle.border} />
+                                    <View style={styles.btncontainer}>
+                                        <MultiPleButton
+                                            firstName={'EDIT'}
+                                            onPressFirst={onEdit}
+                                            secondName={'CHANGE PASSWORD'}
+                                            onPressSecond={onChngPassword}
+                                        />
                                     </View>
                                 </View>
                             </View>

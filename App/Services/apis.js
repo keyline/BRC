@@ -17,4 +17,13 @@ export default class Apis {
     static get_profile = (data) => {
         return Network('post', 'get-profile', data)
     }
+
+    static change_password = (data) => {
+        return Network('post', 'change-password', data)
+    }
+
+    static update_profile = (data) => {
+        return Network('post', 'update-profile', data)
+    }
+
 }

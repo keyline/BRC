@@ -62,5 +62,9 @@ export const styles = StyleSheet.create({
     lighttext: {
         fontFamily: Font_Family.NunitoSans_Regular,
         color: Colors.text_color
+    },
+    btncontainer:{
+        alignSelf:'center',
+        marginVertical: HEIGHT * 0.02
     }
 })
