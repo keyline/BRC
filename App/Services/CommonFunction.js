@@ -33,3 +33,11 @@ export const dateConvertNew = (value) => {
         return null
     }
 }
+
+export const dateConvertYear = (value) => {
+    if (value) {
+        return moment(new Date(value)).format("YYYY-MM-DD")
+    } else {
+        return null
+    }
+}

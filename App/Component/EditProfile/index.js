@@ -68,8 +68,8 @@ const EditProfile = ({ navigation }) => {
         { label: 'Male', value: 'Male' },
         { label: 'Female', value: 'Female' }
     ])
-
     const [genderPicker, setgenderPicker] = useState(false);
+
 
     useFocusEffect(
         useCallback(() => {
@@ -220,7 +220,6 @@ const EditProfile = ({ navigation }) => {
     }, [state.spousename])
 
     const onChangeGender = useCallback(async (val) => {
-        console.log('gender', val)
         setState(prevState => ({
             ...prevState,
             gender: val.value,
@@ -408,7 +407,19 @@ const EditProfile = ({ navigation }) => {
                     office_fax: state.officefax,
                     spouse_date_of_birth: dateConvertNew(state.spousedob)
                 }
-                console.log('UpdatePostBody', JSON.stringify(datas))
+                // console.log('UpdatePostBody', JSON.stringify(datas))
+                const response = await Apis.update_profile(datas)
+                if(__DEV__){
+                    console.log('UpdateProfileRes',JSON.stringify(response))
+                }
+                if(response.status){
+                    navigation.goBack();
+                }
+                setState(prevState=>({
+                    ...prevState,
+                    loading:false
+                }))
+                Toast.show(response.message,Toast.LONG);
             } catch (error) {
                 setState(prevState => ({
                     ...prevState,
