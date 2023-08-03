@@ -56,6 +56,113 @@ export const styles = StyleSheet.create({
         borderWidth: 0.8,
         width: '90%',
         alignSelf: 'center',
-        marginVertical: '3%'
+        marginVertical: '2%'
     },
+    diningLogo: {
+        width: 50,
+        height: 50,
+        tintColor: Colors.light_blue
+    },
+    diningLogoSelected: {
+        width: 50,
+        height: 50,
+        tintColor: Colors.white
+    },
+    listContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderWidth: 2,
+        borderRadius: 10,
+        paddingVertical: '4%',
+        width: '70%',
+        marginBottom: '4%',
+        alignSelf: 'center',
+        justifyContent: 'space-evenly',
+        borderColor: Colors.light_blue,
+        backgroundColor: Colors.morelight_yellow
+    },
+    listContainerSelected: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderRadius: 10,
+        paddingVertical: '4%',
+        width: '70%',
+        marginBottom: '4%',
+        alignSelf: 'center',
+        justifyContent: 'space-evenly',
+        borderColor: Colors.light_blue,
+        backgroundColor: Colors.light_blue
+    },
+    listTextcontent: {
+        // marginLeft: '4%'
+    },
+    listHeadingtxt: {
+        fontFamily: Font_Family.NunitoSans_Bold,
+        color: Colors.light_blue
+    },
+    listHeadingtxtSelected: {
+        fontFamily: Font_Family.NunitoSans_Bold,
+        color: Colors.white
+    },
+    listDesctxt: {
+        fontFamily: Font_Family.NunitoSans_Italic,
+        color: Colors.light_blue
+    },
+    listDesctxtSelected: {
+        fontFamily: Font_Family.NunitoSans_Italic,
+        color: Colors.white
+    },
+    btncontainer: {
+        // alignSelf: 'center',
+        marginTop: '4%',
+        // width: '90%'
+    },
+    tableListContainer: {
+        // paddingHorizontal: '5%',
+        width: '85%',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignSelf: 'center',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        // borderWidth:2
+    },
+    tableListContent: {
+        width: '48%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: '4%',
+        borderWidth: 2,
+        borderRadius: 10,
+        paddingVertical: '4%',
+        borderColor: Colors.light_blue,
+        backgroundColor: Colors.morelight_yellow
+    },
+    tableListContentSelected: {
+        width: '48%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: '4%',
+        borderWidth: 2,
+        borderRadius: 10,
+        paddingVertical: '4%',
+        borderColor: Colors.light_blue,
+        backgroundColor: Colors.light_blue
+    },
+    checkContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        alignSelf: 'center',
+        marginVertical:'4%'
+    },
+    aceptText: {
+        fontFamily: Font_Family.NunitoSans_Bold,
+        color: Colors.black
+    },
+    termstext: {
+        fontFamily: Font_Family.NunitoSans_Bold,
+        color: Colors.light_blue,
+        textDecorationLine: 'underline'
+    }
 })

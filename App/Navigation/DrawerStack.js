@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React from 'react'
 import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -9,6 +9,10 @@ import MyBills from '../Component/MyBills';
 import PaymentList from '../Component/PaymentList';
 import PaymentDetails from '../Component/PaymentDetails';
 import TableBooking from '../Component/TableBooking';
+import CustomDrawerContent from './CustomDrawerContent';
+import { Colors } from '../Utils/Colors';
+import { ImagePath } from '../Utils/ImagePath';
+import { styles } from './styles';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,7 +21,7 @@ const Profilestack = createNativeStackNavigator();
 const ProfileStack = () => (
   <Profilestack.Navigator screenOptions={{ headerShown: false }}>
     <Profilestack.Screen name='MyProfile' component={MyProfile} />
-    <Profilestack.Screen name='EditProfile' component={EditProfile} />
+    {/* <Profilestack.Screen name='EditProfile' component={EditProfile} /> */}
   </Profilestack.Navigator>
 )
 
@@ -38,17 +42,82 @@ const TableBookingStack = () => (
   </TableBookingstack.Navigator>
 )
 
+const Icon = ({ props, source }) => (
+  <Image source={source} style={{ width: props?.size, height: props?.size, tintColor: props?.color, resizeMode: 'contain' }} />
+)
+
 const DrawerStack = () => {
   return (
-    <Drawer.Navigator screenOptions={{ headerShown: false }}>
-      <Drawer.Screen name='ProfileStack' component={ProfileStack} />
-      {/* <Drawer.Screen name='MyProfile' component={MyProfile} /> */}
-      {/* <Drawer.Screen name='EditProfile' component={EditProfile} /> */}
-      <Drawer.Screen name='ChangePassword' component={ChangePassword} />
-      {/* <DrawerItem label={'Sign Out'} onPress={()=> console.log('signout')} /> */}
-      <Drawer.Screen name="MyBills" component={MyBills} />
-      <Drawer.Screen name="PaymentStack" component={PaymentStack} />
-      <Drawer.Screen name="TableBookingStack" component={TableBookingStack} />
+    <Drawer.Navigator
+      screenOptions={{
+        headerShown: false,
+        drawerItemStyle: { paddingVertical: 0, },
+        drawerActiveTintColor: Colors.light_green,
+        // overlayColor: 'transparent',
+        drawerStyle: {
+          borderTopRightRadius: 40,
+          borderBottomRightRadius: 40,
+          borderWidth: 4,
+          borderColor: Colors.light_blue,
+          backgroundColor: Colors.morelight_yellow
+        }
+      }}
+
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
+    >
+      <Drawer.Screen
+        options={{
+          drawerLabel: 'My Profile',
+          drawerLabelStyle: styles.menuText,
+          drawerIcon: (props) => (<Icon source={ImagePath.user} props={props} />)
+        }}
+        name='MyProfile'
+        component={MyProfile} />
+
+      <Drawer.Screen
+        options={{
+          drawerLabel: 'Edit Profile',
+          drawerLabelStyle: styles.menuText,
+          drawerIcon: (props) => (<Icon source={ImagePath.edit_profile} props={props} />)
+        }}
+        name='EditProfile'
+        component={EditProfile} />
+
+      <Drawer.Screen
+        options={{
+          drawerLabel: 'Change Password',
+          drawerLabelStyle: styles.menuText,
+          drawerIcon: (props) => (<Icon source={ImagePath.lock} props={props} />)
+        }}
+        name='ChangePassword'
+        component={ChangePassword} />
+
+      <Drawer.Screen
+        options={{
+          drawerLabel: 'My Bills',
+          drawerLabelStyle: styles.menuText,
+          drawerIcon: (props) => (<Icon source={ImagePath.bill} props={props} />)
+        }}
+        name="MyBills"
+        component={MyBills} />
+
+      <Drawer.Screen
+        options={{
+          drawerLabel: 'Payment List',
+          drawerLabelStyle: styles.menuText,
+          drawerIcon: (props) => (<Icon source={ImagePath.payment_list} props={props} />)
+        }}
+        name="PaymentStack"
+        component={PaymentStack} />
+
+      <Drawer.Screen
+        options={{
+          drawerLabel: 'Table Booking',
+          drawerLabelStyle: styles.menuText,
+          drawerIcon: (props) => (<Icon source={ImagePath.table} props={props} />)
+        }}
+        name="TableBookingStack"
+        component={TableBookingStack} />
     </Drawer.Navigator>
   )
 }

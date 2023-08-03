@@ -46,4 +46,12 @@ export default class Apis {
         return Network('post', 'get-table-timeslots', data)
     }
 
+    static get_table = (data) => {
+        return Network('post', 'get-table-from-dining', data)
+    }
+
+    static book_table = (data) => {
+        return Network('post', 'insert-table-booking', data)
+    }
+
 }

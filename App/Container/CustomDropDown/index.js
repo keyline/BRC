@@ -28,11 +28,11 @@ const CustomDropDown = ({ name, open, value, items, setOpen, setValue, setItems,
                 dropDownContainerStyle={{
                     borderWidth: 0,
                     backgroundColor: Colors.lightGrey,
-                    // position: 'absolute',  // 
-                    // top: 5,
-                    // bottom:5,
+                    // position: 'relative',  // 
+                    // top: 0,
+                    // bottom:0,
                     width: '80%',
-                    zIndex: 99
+                    // zIndex: 99
 
                 }}
                 listItemLabelStyle={{

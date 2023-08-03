@@ -73,7 +73,7 @@ const MyBills = ({ navigation }) => {
     }, [navigation])
 
     const onBillView = useCallback(async (link) => {
-        console.log('Link', link)
+        // console.log('Link', link)
         try {
             if (link) {
                 await Linking.openURL(link);
