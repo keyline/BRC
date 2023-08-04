@@ -54,4 +54,47 @@ export default class Apis {
         return Network('post', 'insert-table-booking', data)
     }
 
+    static sportsList = (data) => {
+        return Network('post', 'get-sports', data)
+    }
+
+    static sportsTimeSlots = (data) => {
+        return Network('post', 'get-sports-timeslots', data)
+    }
+
+    static SportMemberList = (data) => {
+        return Network('post', 'get-member-list', data)
+    }
+
+    static sportBook = (data) => {
+        return Network('post', 'insert-sports-booking', data)
+    }
+
+    static sportBook_validate = (data) => {
+        return Network('post', 'validate-sports-booking', data)
+    }
+
+    static sportBookOtp_resend = (data) => {
+        return Network('post', 'regenerate-sports-otp', data)
+    }
+
+    static sportsMarkerTimeSlots = (data) => {
+        return Network('post', 'get-sports-squash-coach-timeslots', data)
+    }
+
+    static tableBookingList = (data) => {
+        return Network('post', 'table-booking-list', data)
+    }
+
+    static tableBooking_Cancel = (data) => {
+        return Network('post', 'cancel-table-booking', data)
+    }
+
+    static sportsBookingList = (data) => {
+        return Network('post', 'sports-booking-list', data)
+    }
+
+    static sportsBooking_Cancel = (data) => {
+        return Network('post', 'cancel-sports-booking', data)
+    }
 }

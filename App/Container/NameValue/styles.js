@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
+        marginBottom:'1%'
     },
     nameText: {
         fontFamily: Font_Family.NunitoSans_Bold,

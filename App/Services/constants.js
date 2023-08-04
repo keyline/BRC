@@ -9,3 +9,4 @@ export const WIDTH = Dimensions.get('window').width;
 export const HEIGHT = Dimensions.get('window').height;
 
 export const TABLEBOOKING_TERMS = "https://bengalrowingclub.keylines.in/index.php/members/booking_terms/table"
+export const SPORTBOOKING_TERMS = "https://bengalrowingclub.keylines.in/index.php/members/booking_terms/sports"

@@ -434,10 +434,10 @@ const TableBooking = ({ navigation }) => {
                                     value={state.date}
                                     error={state.dateErr ? 'Select Date' : ''}
                                 />
-                                <View style={{ marginVertical: '5%' }}>
+                                <View style={{ marginVertical: '5%', paddingHorizontal: '1.5%' }}>
                                     <CustomDropDown
-                                        // name={'DiningSpace'}
-                                        placeholder={'Select Diningspace'}
+                                        // name={'Dining Space'}
+                                        placeholder={'Select Dining Space'}
                                         items={diningSpaceList}
                                         value={state.diningSpace}
                                         open={diningpacePicker}
@@ -445,7 +445,7 @@ const TableBooking = ({ navigation }) => {
                                         setItems={setdiningSpaceList}
                                         setOpen={setdiningpacePicker}
                                         onChangeValue={onChangeDiningSpace}
-                                        error={state.diningSpaceErr ? 'Select Diningspace' : ''}
+                                        error={state.diningSpaceErr ? 'Select Dining Space' : ''}
                                     />
                                 </View>
                                 <View style={styles.border} />

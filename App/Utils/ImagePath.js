@@ -13,5 +13,7 @@ export const ImagePath = {
     bill: require('../assets/Image/bill.png'),
     payment_list: require('../assets/Image/payment_list.png'),
     logout:require('../assets/Image/logout.png'),
-    edit_profile:require('../assets/Image/edit_profile.png')
+    edit_profile:require('../assets/Image/edit_profile.png'),
+    sports:require('../assets/Image/sports.png'),
+    mybooking:require('../assets/Image/mybooking.png')
 }

@@ -1,5 +1,5 @@
 import { View, Text, Image } from 'react-native'
-import React, { useCallback, useState, useContext } from 'react'
+import React, { useCallback, useState, useContext, useEffect } from 'react'
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer'
 import { ImagePath } from '../Utils/ImagePath'
 import { Colors } from '../Utils/Colors'
@@ -23,12 +23,17 @@ const CustomDrawerContent = (props) => {
         data: null
     })
 
-    useFocusEffect(
-        useCallback(() => {
-            const unsubscribe = onGetData();
-            return () => unsubscribe
-        }, [props])
-    )
+    // useFocusEffect(
+    //     useCallback(() => {
+    //         const unsubscribe = onGetData();
+    //         return () => unsubscribe
+    //     }, [props])
+    // )
+
+    useEffect(() => {
+        const unsubscribe = onGetData();
+        return () => unsubscribe
+    }, [props?.navigation])
 
     const onGetData = useCallback(async () => {
         try {

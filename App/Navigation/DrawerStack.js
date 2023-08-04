@@ -13,6 +13,9 @@ import CustomDrawerContent from './CustomDrawerContent';
 import { Colors } from '../Utils/Colors';
 import { ImagePath } from '../Utils/ImagePath';
 import { styles } from './styles';
+import SportsBooking from '../Component/SportsBooking';
+import OtpVerify from '../Component/OtpVerify';
+import MyBooking from '../Component/MyBooking';
 
 const Drawer = createDrawerNavigator();
 
@@ -40,6 +43,15 @@ const TableBookingStack = () => (
   <TableBookingstack.Navigator screenOptions={{ headerShown: false }}>
     <TableBookingstack.Screen name='TableBooking' component={TableBooking} />
   </TableBookingstack.Navigator>
+)
+
+const SportBookingstack = createNativeStackNavigator();
+
+const SportBookingStack = () => (
+  <SportBookingstack.Navigator screenOptions={{ headerShown: false }}>
+    <SportBookingstack.Screen name='SportsBooking' component={SportsBooking} />
+    <SportBookingstack.Screen name='OtpVerify' component={OtpVerify} />
+  </SportBookingstack.Navigator>
 )
 
 const Icon = ({ props, source }) => (
@@ -94,6 +106,15 @@ const DrawerStack = () => {
 
       <Drawer.Screen
         options={{
+          drawerLabel: 'My Booking',
+          drawerLabelStyle: styles.menuText,
+          drawerIcon: (props) => (<Icon source={ImagePath.mybooking} props={props} />)
+        }}
+        name="MyBooking"
+        component={MyBooking} />
+
+      <Drawer.Screen
+        options={{
           drawerLabel: 'My Bills',
           drawerLabelStyle: styles.menuText,
           drawerIcon: (props) => (<Icon source={ImagePath.bill} props={props} />)
@@ -118,6 +139,16 @@ const DrawerStack = () => {
         }}
         name="TableBookingStack"
         component={TableBookingStack} />
+
+      <Drawer.Screen
+        options={{
+          drawerLabel: 'Sports Booking',
+          drawerLabelStyle: styles.menuText,
+          drawerIcon: (props) => (<Icon source={ImagePath.sports} props={props} />)
+        }}
+        name="SportBookingStack"
+        component={SportBookingStack} />
+
     </Drawer.Navigator>
   )
 }
