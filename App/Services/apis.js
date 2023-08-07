@@ -97,4 +97,16 @@ export default class Apis {
     static sportsBooking_Cancel = (data) => {
         return Network('post', 'cancel-sports-booking', data)
     }
+
+    static makePayment = (data) => {
+        return Network('post', 'make-payment', data)
+    }
+
+    static reviewPaymentDetails = (data) => {
+        return Network('post', 'review-payment-details', data)
+    }
+
+    static insertPayment = (data) => {
+        return Network('post', 'insert-payment-hdfc', data)
+    }
 }

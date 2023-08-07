@@ -383,10 +383,10 @@ const EditProfile = ({ navigation }) => {
             return;
         } else {
             try {
-                // setState(prevState => ({
-                //     ...prevState,
-                //     loading:true
-                // }))
+                setState(prevState => ({
+                    ...prevState,
+                    loading:true
+                }))
                 let datas = {
                     key: KEY,
                     source: SOURCE,

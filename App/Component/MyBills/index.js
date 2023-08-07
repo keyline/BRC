@@ -95,7 +95,8 @@ const MyBills = ({ navigation }) => {
     })
 
     const onMakePayment = useCallback(async () => {
-        console.log('MakePayment');
+        // console.log('MakePayment');
+        navigation.navigate('MakePayment')
     })
 
 

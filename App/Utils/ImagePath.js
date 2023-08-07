@@ -15,5 +15,8 @@ export const ImagePath = {
     logout:require('../assets/Image/logout.png'),
     edit_profile:require('../assets/Image/edit_profile.png'),
     sports:require('../assets/Image/sports.png'),
-    mybooking:require('../assets/Image/mybooking.png')
+    mybooking:require('../assets/Image/mybooking.png'),
+    hdfc_logo:require('../assets/Image/hdfc_logo.png'),
+    payment_success:require('../assets/Image/payment_success.png'),
+    payment_fali:require('../assets/Image/payment_fali.png')
 }

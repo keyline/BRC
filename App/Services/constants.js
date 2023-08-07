@@ -10,3 +10,6 @@ export const HEIGHT = Dimensions.get('window').height;
 
 export const TABLEBOOKING_TERMS = "https://bengalrowingclub.keylines.in/index.php/members/booking_terms/table"
 export const SPORTBOOKING_TERMS = "https://bengalrowingclub.keylines.in/index.php/members/booking_terms/sports"
+
+export const PAYMENT_SUCCESS_URL = "https://bengalrowingclub.keylines.in/app-webview-payment/success.php"
+export const PAYMENT_FAIL_URL = "https://bengalrowingclub.keylines.in/app-webview-payment/failure.php"

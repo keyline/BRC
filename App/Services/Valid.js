@@ -8,3 +8,8 @@ export const isValidMobile = (mobile) => {
     let regex = /([0-9]){10}$/;
     return regex.test(mobile)
 }
+
+export const isValidAmount = (amount) => {
+    let regex = /^[0-9]+$/;
+    return regex.test(amount)
+}

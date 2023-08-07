@@ -575,7 +575,7 @@ const SportsBooking = ({ navigation }) => {
                                                 onChangeValue={onChangeMember2}
                                                 searchable={true}
                                                 listMode={'MODAL'}
-                                                searchPlaceholder={'Select Member 2'}
+                                                searchPlaceholder={'Search Member 2'}
                                                 error={state.baMember2Err ? 'Select Member 2' : ''}
                                             />
                                         </View>
@@ -592,7 +592,7 @@ const SportsBooking = ({ navigation }) => {
                                                 onChangeValue={onChangeMember3}
                                                 searchable={true}
                                                 listMode={'MODAL'}
-                                                searchPlaceholder={'Select Member 3'}
+                                                searchPlaceholder={'Search Member 3'}
                                                 error={state.baMember3Err ? 'Select Member 3' : ''}
                                             />
                                         </View>
@@ -609,7 +609,7 @@ const SportsBooking = ({ navigation }) => {
                                                 onChangeValue={onChangeMember4}
                                                 searchable={true}
                                                 listMode={'MODAL'}
-                                                searchPlaceholder={'Select Member 4'}
+                                                searchPlaceholder={'Search Member 4'}
                                                 error={state.baMember4Err ? 'Select Member 4' : ''}
                                             />
                                         </View>
@@ -644,7 +644,7 @@ const SportsBooking = ({ navigation }) => {
                                                     onChangeValue={onChangesqMember}
                                                     searchable={true}
                                                     listMode={'MODAL'}
-                                                    searchPlaceholder={'Select Opponent Member'}
+                                                    searchPlaceholder={'Search Opponent Member'}
                                                     error={state.sqMemberErr ? 'Select Opponent Member' : ''}
                                                 />
                                             </View>

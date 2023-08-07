@@ -16,6 +16,10 @@ import { styles } from './styles';
 import SportsBooking from '../Component/SportsBooking';
 import OtpVerify from '../Component/OtpVerify';
 import MyBooking from '../Component/MyBooking';
+import MakePayment from '../Component/MakePayment';
+import ReviewPayment from '../Component/ReviewPayment';
+import Payment from '../Component/Payment';
+import PaymentStatus from '../Component/PaymentStatus';
 
 const Drawer = createDrawerNavigator();
 
@@ -52,6 +56,18 @@ const SportBookingStack = () => (
     <SportBookingstack.Screen name='SportsBooking' component={SportsBooking} />
     <SportBookingstack.Screen name='OtpVerify' component={OtpVerify} />
   </SportBookingstack.Navigator>
+)
+
+const MyBillstack = createNativeStackNavigator();
+
+const MyBillStack = () => (
+  <MyBillstack.Navigator initialRouteName='MyBills' screenOptions={{ headerShown: false }}>
+    <MyBillstack.Screen name='MyBills' component={MyBills} />
+    <MyBillstack.Screen name='MakePayment' component={MakePayment} />
+    <MyBillstack.Screen name='ReviewPayment' component={ReviewPayment} />
+    <MyBillstack.Screen name='Payment' component={Payment} />
+    <MyBillstack.Screen name='PaymentStatus' component={PaymentStatus} />
+  </MyBillstack.Navigator>
 )
 
 const Icon = ({ props, source }) => (
@@ -119,8 +135,8 @@ const DrawerStack = () => {
           drawerLabelStyle: styles.menuText,
           drawerIcon: (props) => (<Icon source={ImagePath.bill} props={props} />)
         }}
-        name="MyBills"
-        component={MyBills} />
+        name="MyBillStack"
+        component={MyBillStack} />
 
       <Drawer.Screen
         options={{
