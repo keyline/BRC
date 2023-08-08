@@ -8,9 +8,9 @@ const Payment = ({ navigation, route }) => {
     const handleNavigationStateChange = (navState) => {
         console.log('Current URL:', navState.url);
         let url = navState.url
-        if (url == PAYMENT_SUCCESS_URL) {
+        if (url == PAYMENT_SUCCESS_URL || url.includes('success.php')) {
             navigation.replace('PaymentStatus', { status: 'SUCCESS', paymentId: route?.params?.paymentId, paymentDetails: route?.params?.paymentDetails })
-        } else if (url == PAYMENT_FAIL_URL) {
+        } else if (url == PAYMENT_FAIL_URL || url.includes('failure.php')) {
             navigation.replace('PaymentStatus', { status: 'FAIL', paymentId: route?.params?.paymentId, paymentDetails: route?.params?.paymentDetails })
         }
     };

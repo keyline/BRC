@@ -109,4 +109,8 @@ export default class Apis {
     static insertPayment = (data) => {
         return Network('post', 'insert-payment-hdfc', data)
     }
+
+    static paymentInfo = (data) => {
+        return Network('post', 'get-payment-info', data)
+    }
 }
