@@ -119,9 +119,9 @@ const MyBills = ({ navigation }) => {
                                 ListEmptyComponent={<EmptyComponent emptyText={'No Bill Found'} />}
                                 showsVerticalScrollIndicator={false}
                             />
-                            {state?.data?.length > 0 && (
+                            {/* {state?.data?.length > 0 && (
                                 <FooterComponent onPress={onMakePayment} />
-                            )}
+                            )} */}
                         </View>
                     </View>
                 }

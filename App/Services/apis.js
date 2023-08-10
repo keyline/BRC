@@ -14,6 +14,10 @@ export default class Apis {
         return Network('post', 'signout', data)
     }
 
+    static delete_account = (data) => {
+        return Network('post', 'delete-account', data)
+    }
+
     static get_profile = (data) => {
         return Network('post', 'get-profile', data)
     }

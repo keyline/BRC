@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Alert } from 'react-native'
 import React, { useCallback, useState, useContext, useEffect } from 'react'
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer'
 import { ImagePath } from '../Utils/ImagePath'
@@ -110,6 +110,56 @@ const CustomDrawerContent = (props) => {
         }
     })
 
+    const onDeleteacAlert = useCallback(async () => {
+        Alert.alert(
+            'Delete !!',
+            'Are You Really Want to Delete Your Account?', [{
+                text: 'No',
+                onPress: () => null,
+                style: 'cancel'
+            }, {
+                text: 'Yes',
+                onPress: () => onDeleteAccount()
+            },], {
+            cancelable: false
+        }
+        )
+    })
+
+    const onDeleteAccount = useCallback(async () => {
+        try {
+            props.navigation.closeDrawer()
+            setState(prevState => ({
+                ...prevState,
+                loading: true
+            }))
+            let datas = {
+                key: KEY,
+                source: SOURCE,
+                app_access_token: state.accessToken
+            }
+            const response = await Apis.delete_account(datas);
+            if (__DEV__) {
+                console.log('DeleteAccount', JSON.stringify(response))
+            }
+            if (response.status) {
+                await Context?.onClearStoreData();
+            } else {
+                props.navigation.openDrawer();
+            }
+            setState(prevState => ({
+                ...prevState,
+                loading: false
+            }));
+            Toast.show(response.message, Toast.LONG);
+        } catch (error) {
+            if (__DEV__) {
+                console.log(error)
+            }
+            Toast.show('Something Went Wrong', Toast.LONG);
+        }
+    })
+
     const Icon = ({ props, source }) => (
         <Image source={source} style={{ width: props?.size, height: props?.size, tintColor: props?.color, resizeMode: 'contain' }} />
     )
@@ -122,6 +172,13 @@ const CustomDrawerContent = (props) => {
                 <View style={styles.border} />
             </View>
             <DrawerItemList {...props} />
+            <DrawerItem
+                label="Delete Account"
+                onPress={onDeleteacAlert}
+                labelStyle={styles.menuText}
+                icon={(props) => (<Icon source={ImagePath.delete_ac} props={props} />)}
+                pressColor={Colors.light_green}
+            />
             <DrawerItem
                 label="Sign Out"
                 onPress={onSignOut}
