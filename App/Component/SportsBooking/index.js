@@ -402,7 +402,8 @@ const SportsBooking = ({ navigation }) => {
 
     const getMemberArray = useCallback(async () => {
         if (state.sports == '1') {
-            return [state.userdata?.membership_no, state.baMember2, state.baMember3, state.baMember4]
+            // return [state.userdata?.membership_no, state.baMember2, state.baMember3, state.baMember4]
+            return [state.userdata?.membership_no]
         } else if (state.sports == "2" && state.sqPlayertype == "2") {
             return [state.userdata?.membership_no, state.sqMember]
         } else {
@@ -423,25 +424,27 @@ const SportsBooking = ({ navigation }) => {
                 sportsErr: 'error'
             }))
             return;
-        } else if (state.sports == "1" && state.baMember2 == '') {
-            setState(prevState => ({
-                ...prevState,
-                baMember2Err: 'error'
-            }))
-            return;
-        } else if (state.sports == "1" && state.baMember3 == '') {
-            setState(prevState => ({
-                ...prevState,
-                baMember3Err: 'error'
-            }))
-            return;
-        } else if (state.sports == "1" && state.baMember4 == '') {
-            setState(prevState => ({
-                ...prevState,
-                baMember4Err: 'error'
-            }))
-            return;
-        } else if (state.sports == "1" && state.timeSlots == '') {
+        }
+        // else if (state.sports == "1" && state.baMember2 == '') {
+        //     setState(prevState => ({
+        //         ...prevState,
+        //         baMember2Err: 'error'
+        //     }))
+        //     return;
+        // } else if (state.sports == "1" && state.baMember3 == '') {
+        //     setState(prevState => ({
+        //         ...prevState,
+        //         baMember3Err: 'error'
+        //     }))
+        //     return;
+        // } else if (state.sports == "1" && state.baMember4 == '') {
+        //     setState(prevState => ({
+        //         ...prevState,
+        //         baMember4Err: 'error'
+        //     }))
+        //     return;
+        // } 
+        else if (state.sports == "1" && state.timeSlots == '') {
             setState(prevState => ({
                 ...prevState,
                 timeSlotsErr: 'error'
@@ -544,7 +547,7 @@ const SportsBooking = ({ navigation }) => {
                                     value={state.date}
                                     error={state.dateErr ? 'Select Date' : ''}
                                 />
-                                <View style={{ marginVertical: '5%', paddingHorizontal: '1.5%', zIndex: 1 }}>
+                                <View style={{ paddingTop: '5%', paddingBottom: '10%', paddingHorizontal: '1.5%', zIndex: 99 }}>
                                     <CustomDropDown
                                         // name={'Dining Space'}
                                         placeholder={'Select Sports'}
@@ -558,8 +561,7 @@ const SportsBooking = ({ navigation }) => {
                                         error={state.sportsErr ? 'Select Sports' : ''}
                                     />
                                 </View>
-                                <View style={styles.border} />
-                                {(state.sports == "1" && memberList) && (
+                                {/* {(state.sports == "1" && memberList) && (
                                     <View>
                                         <Text style={styles.subheadingText}>Member List</Text>
                                         <View style={{ marginTop: '2%', paddingHorizontal: '1.5%' }}>
@@ -614,9 +616,10 @@ const SportsBooking = ({ navigation }) => {
                                             />
                                         </View>
                                     </View>
-                                )}
+                                )} */}
                                 {(state.sports == "2" && sqPlayerList) && (
                                     <View>
+                                        <View style={styles.border} />
                                         <Text style={styles.subheadingText}>Select Player Type</Text>
                                         <View style={{ marginTop: '2%', marginBottom: '2%', paddingHorizontal: '1.5%' }}>
                                             <CustomDropDown

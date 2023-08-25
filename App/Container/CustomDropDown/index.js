@@ -45,6 +45,7 @@ const CustomDropDown = ({ name, open, value, items, setOpen, setValue, setItems,
                     // top: 0,
                     // bottom:0,
                     width: '80%',
+                    // marginBottom:15,
                     // paddingVertical:'10%'
                     zIndex: 999
                 }}

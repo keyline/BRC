@@ -13,7 +13,8 @@ export const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Colors.light_yellow,
         borderTopLeftRadius: 10,
-        borderTopRightRadius: 10
+        borderTopRightRadius: 10,
+        // height:'95%'
     },
     mainContent: {
         marginTop: '5%'
@@ -26,14 +27,15 @@ export const styles = StyleSheet.create({
     },
     bodyContent: {
         backgroundColor: Colors.white,
-        width: '90%',
+        width: '95%',
         // height:'100%',
         alignSelf: 'center',
         marginTop: '4%',
-        marginBottom: '5%',
+        marginBottom: 15,
         borderRadius: 10,
         paddingVertical: '5%',
         paddingHorizontal: '3%',
+        // zIndex:1,
         ...CommonStyle.box_effect
     },
     logo: {

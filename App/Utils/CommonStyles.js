@@ -73,7 +73,7 @@ export const CommonStyle = StyleSheet.create({
                 },
             },
             android: {
-                elevtion: 6
+                elevation: 6
             }
         }),
     },
