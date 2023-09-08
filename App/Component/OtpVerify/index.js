@@ -11,6 +11,7 @@ import LoaderNew from '../../Container/LoaderNew'
 import Toast from 'react-native-simple-toast';
 import { KEY, SOURCE } from '../../Services/constants'
 import Apis from '../../Services/apis'
+import { useFocusEffect } from '@react-navigation/native'
 
 const OtpVerify = ({ navigation, route }) => {
 
@@ -26,6 +27,19 @@ const OtpVerify = ({ navigation, route }) => {
         otpErr: ''
     })
     const [timer, setTimer] = useState(60)
+
+    useFocusEffect(
+        useCallback(() => {
+            const unsubscribe = onLoad();
+            return () => unsubscribe
+        }, [navigation])
+    )
+
+    const onLoad = useCallback(async () => {
+        if (!route.params.id) {
+            navigation.replace('SportsBooking')
+        }
+    })
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -74,7 +88,8 @@ const OtpVerify = ({ navigation, route }) => {
                     btnLoading: false
                 }))
                 if (response.status) {
-                    navigation.navigate('MyProfile');
+                    // navigation.navigate('MyProfile');
+                    navigation.replace('SportsBooking')
                 }
                 Toast.show(response.message, Toast.LONG);
             } catch (error) {
@@ -143,7 +158,7 @@ const OtpVerify = ({ navigation, route }) => {
                                 placeholderTextColor={Colors.dark_yellow}
                             // onCodeFilled={(code) => onSubmitOtp(code)}
                             />
-                            {timer == 0 ?
+                            {timer >= 0 ?
                                 <Text onPress={onResendOtp} style={styles.resendText}>Resend OTP</Text>
                                 :
                                 <Text style={styles.timerText}>Resend OTP in : {timer} Sec</Text>
@@ -153,6 +168,7 @@ const OtpVerify = ({ navigation, route }) => {
                                     name={'VERIFY'}
                                     onPress={onSubmitOtp}
                                     width={'90%'}
+                                    loader={state.btnLoading}
                                 />
                             </View>
                         </View>

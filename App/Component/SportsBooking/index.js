@@ -509,11 +509,12 @@ const SportsBooking = ({ navigation }) => {
                 }))
                 Toast.show(response.message, Toast.LONG);
                 if (response.status) {
-                    if (state.sports == '2') {
-                        navigation.navigate('OtpVerify', { id: response?.data?.booking_id, otp: response?.data?.otp })
-                    } else {
-                        navigation.navigate('MyProfile');
-                    }
+                    navigation.navigate('OtpVerify', { id: response?.data?.booking_id, otp: response?.data?.otp })
+                    // if (state.sports == '2') {
+                    //     navigation.navigate('OtpVerify', { id: response?.data?.booking_id, otp: response?.data?.otp })
+                    // } else {
+                    //     navigation.navigate('MyProfile');
+                    // }
                 }
             } catch (error) {
                 setState(prevState => ({

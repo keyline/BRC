@@ -81,7 +81,7 @@ const TableBooking = ({ navigation }) => {
     }, [state.datePicker])
 
     const onDateSelect = useCallback(async (value) => {
-        console.log('dateSelect', value)
+        // console.log('dateSelect', value)
         let time = value?.nativeEvent?.timestamp;
         if (value.type == 'set') {
             setState(prevState => ({

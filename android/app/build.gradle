@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.brc"
+    namespace "com.brc.keyline"
     defaultConfig {
-        applicationId "com.brc"
+        applicationId "com.brc.keyline"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

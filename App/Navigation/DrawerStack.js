@@ -52,7 +52,7 @@ const TableBookingStack = () => (
 const SportBookingstack = createNativeStackNavigator();
 
 const SportBookingStack = () => (
-  <SportBookingstack.Navigator screenOptions={{ headerShown: false }}>
+  <SportBookingstack.Navigator initialRouteName='SportsBooking' screenOptions={{ headerShown: false }}>
     <SportBookingstack.Screen name='SportsBooking' component={SportsBooking} />
     <SportBookingstack.Screen name='OtpVerify' component={OtpVerify} />
   </SportBookingstack.Navigator>
