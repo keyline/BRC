@@ -62,7 +62,7 @@ export const styles = StyleSheet.create({
         width: 140,
         height: 140,
         borderRadius: 70,
-        resizeMode: 'cover',
+        resizeMode: 'contain',
     },
     inputcontainer: {
         alignItems: 'center',
@@ -75,13 +75,18 @@ export const styles = StyleSheet.create({
         borderColor: Colors.border_color,
         flexDirection: 'row',
         paddingHorizontal: 15,
-        alignItems: 'center'
+        alignItems: 'center',
+        ...Platform.select({
+            ios:{
+                paddingVertical:'4%'
+            }
+        })
     },
     inputimg: {
         width: 20,
         height: 20,
-        resizeMode: 'center',
-        tintColor:Colors.light_yellow
+        resizeMode: 'contain',
+        // tintColor:Colors.light_yellow
     },
     input: {
         color: Colors.text_color,

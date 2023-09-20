@@ -619,8 +619,9 @@ const SportsBooking = ({ navigation }) => {
                                     </View>
                                 )} */}
                                 {(state.sports == "2" && sqPlayerList) && (
-                                    <View>
+                                    <>
                                         <View style={styles.border} />
+                                        <View style={{zIndex:9}}>
                                         <Text style={styles.subheadingText}>Select Player Type</Text>
                                         <View style={{ marginTop: '2%', marginBottom: '2%', paddingHorizontal: '1.5%' }}>
                                             <CustomDropDown
@@ -635,25 +636,26 @@ const SportsBooking = ({ navigation }) => {
                                                 error={state.sqPlayertypeErr ? 'Select Player Type' : ''}
                                             />
                                         </View>
-                                        {(state.sqPlayertype == "2" && memberList) && (
-                                            <View style={{ marginTop: '5%', paddingHorizontal: '1.5%', zIndex: 1 }}>
-                                                <CustomDropDown
-                                                    placeholder={'Select Opponent Member'}
-                                                    items={memberList}
-                                                    value={state.sqMember}
-                                                    open={sqMemberPicker}
-                                                    dropDownDirection={'AUTO'}
-                                                    setItems={setMemberList}
-                                                    setOpen={setsqMemberPicker}
-                                                    onChangeValue={onChangesqMember}
-                                                    searchable={true}
-                                                    listMode={'MODAL'}
-                                                    searchPlaceholder={'Search Opponent Member'}
-                                                    error={state.sqMemberErr ? 'Select Opponent Member' : ''}
-                                                />
-                                            </View>
-                                        )}
-                                    </View>
+                                        </View>
+                                            {(state.sqPlayertype == "2" && memberList) && (
+                                                <View style={{ marginTop: '5%', paddingHorizontal: '1.5%' }}>
+                                                    <CustomDropDown
+                                                        placeholder={'Select Opponent Member'}
+                                                        items={memberList}
+                                                        value={state.sqMember}
+                                                        open={sqMemberPicker}
+                                                        dropDownDirection={'AUTO'}
+                                                        setItems={setMemberList}
+                                                        setOpen={setsqMemberPicker}
+                                                        onChangeValue={onChangesqMember}
+                                                        searchable={true}
+                                                        listMode={'MODAL'}
+                                                        searchPlaceholder={'Search Opponent Member'}
+                                                        error={state.sqMemberErr ? 'Select Opponent Member' : ''}
+                                                    />
+                                                </View>
+                                            )}
+                                    </>
                                 )}
                                 {(state.timeSlotsList && state.timeSlotsList.length > 0) && (
                                     <>

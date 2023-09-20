@@ -10,6 +10,7 @@ const DateTimePickers = ({ value, mode, onConfirm, disabled }) => {
                 onChange={(date) => onConfirm(date)}
                 // disabled={true}
                 mode={mode}
+                display='inline'
             />
         </View>
     )

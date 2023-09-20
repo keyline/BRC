@@ -128,7 +128,7 @@ const MakePayment = ({ navigation }) => {
                                         disabled={false}
                                         onChange={onChangeCheckBox}
                                     />
-                                    <Text style={styles.lighttext}>Pay using HDFC</Text>
+                                    <Text style={styles.lighttext}>  Pay using HDFC</Text>
                                 </View>
                                 <View style={{ alignSelf: 'center' }}>
                                     <Image source={ImagePath.hdfc_logo} style={styles.hdfclogo} />

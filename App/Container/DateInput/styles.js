@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet ,Platform} from 'react-native';
 import { HEIGHT, WIDTH } from '../../Services/constants';
 import { Colors } from '../../Utils/Colors';
 import { Font_Family } from '../../Utils/Fonts';
@@ -23,12 +23,17 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: '6%',
         alignItems: 'center',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        ...Platform.select({
+            ios:{
+                paddingVertical:'4%'
+            }
+        })
     },
     inputimg: {
         width: 20,
         height: 20,
-        resizeMode: 'center',
+        resizeMode: 'contain',
         marginRight: 15,
 
     },
@@ -46,7 +51,7 @@ export const styles = StyleSheet.create({
     eyeicon: {
         width: 25,
         height: 25,
-        resizeMode: 'center',
-        tintColor: Colors.light_yellow
+        resizeMode: 'contain',
+        // tintColor: Colors.light_yellow
     },
 })

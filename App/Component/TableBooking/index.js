@@ -434,7 +434,7 @@ const TableBooking = ({ navigation }) => {
                                     value={state.date}
                                     error={state.dateErr ? 'Select Date' : ''}
                                 />
-                                <View style={{ marginVertical: '5%', paddingHorizontal: '1.5%' }}>
+                                <View style={{ marginVertical: '5%', paddingHorizontal: '1.5%',zIndex:99 }}>
                                     <CustomDropDown
                                         // name={'Dining Space'}
                                         placeholder={'Select Dining Space'}
@@ -499,7 +499,7 @@ const TableBooking = ({ navigation }) => {
                                                                     disabled={false}
                                                                     onValueChange={onChangeCheckbox}
                                                                 />
-                                                                <Text style={styles.aceptText}>I accept the <Text onPress={onTermsCondition} style={styles.termstext}>Terms and Conditions</Text></Text>
+                                                                <Text style={styles.aceptText}>  I accept the <Text onPress={onTermsCondition} style={styles.termstext}>Terms and Conditions</Text></Text>
                                                             </View>
                                                             <View style={styles.btncontainer}>
                                                                 <SingleButton

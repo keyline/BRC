@@ -24,13 +24,12 @@ const CustomDropDown = ({ name, open, value, items, setOpen, setValue, setItems,
                 labelStyle={styles.input1}
                 style={styles.dropiker}
                 dropDownDirection={dropDownDirection ? dropDownDirection : 'AUTO'}
-                bottomOffset={200}
+                // bottomOffset={200}
                 searchable={searchable}
                 searchTextInputStyle={{
                     fontFamily: Font_Family.NunitoSans_Regular,
                     color: Colors.text_color
                 }}
-                search
                 searchContainerStyle={{
                     borderBottomColor: Colors.light_blue,
                     // borderColor:'red'
@@ -41,13 +40,13 @@ const CustomDropDown = ({ name, open, value, items, setOpen, setValue, setItems,
                     borderWidth: 1,
                     backgroundColor: Colors.morelight_yellow,
                     borderColor: Colors.light_blue,
-                    // position: 'relative',  // 
+                    position: 'absolute',  // 
                     // top: 0,
                     // bottom:0,
                     width: '80%',
                     // marginBottom:15,
                     // paddingVertical:'10%'
-                    zIndex: 999
+                    // zIndex: 1000,
                 }}
                 listItemLabelStyle={{
                     fontFamily: Font_Family.NunitoSans_SemiBold,

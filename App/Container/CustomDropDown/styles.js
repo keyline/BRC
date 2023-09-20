@@ -6,7 +6,9 @@ import { Colors } from '../../Utils/Colors';
 export const styles = StyleSheet.create({
     container: {
         alignSelf: 'center',
-        marginVertical: '2%'
+        marginVertical: '2%',
+        flex: 1,
+        zIndex: 100000
     },
     headingtext: {
         color: Colors.text_color,
@@ -29,7 +31,7 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         // fontSize: FONT_SIZE.LesSize,
         width: '80%',
-        paddingHorizontal:'6%',
+        paddingHorizontal: '6%',
         color: Colors.text_color,
         fontFamily: Font_Family.NunitoSans_Regular,
     },

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet,Platform } from 'react-native';
 import { Colors } from '../../Utils/Colors';
 import { Font_Family } from '../../Utils/Fonts';
 import { HEIGHT, WIDTH } from '../../Services/constants';
@@ -23,7 +23,12 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: '6%',
         alignItems: 'center',
-        alignSelf: 'center'
+        alignSelf: 'center',
+        ...Platform.select({
+            ios:{
+                paddingVertical:'4%'
+            }
+        })
     },
     inputimg: {
         width: 20,
@@ -35,7 +40,8 @@ export const styles = StyleSheet.create({
     input: {
         color: Colors.text_color,
         width: '85%',
-        fontFamily: Font_Family.NunitoSans_Regular
+        fontFamily: Font_Family.NunitoSans_Regular,
+        
     },
     errName: {
         color: 'red',

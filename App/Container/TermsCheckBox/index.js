@@ -26,7 +26,7 @@ const TermsCheckBox = ({ value, onValueChange, TermsLink }) => {
                 disabled={false}
                 onValueChange={(value) => onValueChange(value)}
             />
-            <Text style={styles.aceptText}>I accept the <Text onPress={onTermsCondition} style={styles.termstext}>Terms and Conditions</Text></Text>
+            <Text style={styles.aceptText}>  I accept the <Text onPress={onTermsCondition} style={styles.termstext}>Terms and Conditions</Text></Text>
         </View>
     )
 }

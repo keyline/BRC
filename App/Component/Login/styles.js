@@ -75,12 +75,17 @@ export const styles = StyleSheet.create({
         borderColor: Colors.border_color,
         flexDirection: 'row',
         paddingHorizontal: '6%',
-        alignItems: 'center'
+        alignItems: 'center',
+        ...Platform.select({
+            ios:{
+                paddingVertical:'4%'
+            }
+        })
     },
     inputimg: {
         width: 20,
         height: 20,
-        resizeMode: 'center'
+        resizeMode: 'contain'
     },
     input: {
         color: Colors.text_color,
@@ -91,8 +96,8 @@ export const styles = StyleSheet.create({
     eyeicon: {
         width: 25,
         height: 25,
-        resizeMode: 'center',
-        tintColor: Colors.light_yellow
+        resizeMode: 'cover',
+        // tintColor: Colors.light_yellow
     },
     forgottext: {
         marginVertical: 15,

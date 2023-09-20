@@ -17,7 +17,8 @@ export const styles = StyleSheet.create({
         borderTopRightRadius: 10
     },
     mainContent: {
-        marginTop: '5%'
+        marginTop: '5%',
+        marginBottom:'4%'
     },
     headingtext: {
         alignSelf: 'center',

@@ -83,14 +83,15 @@ const DrawerStack = () => {
         drawerActiveTintColor: Colors.light_green,
         // overlayColor: 'transparent',
         drawerStyle: {
-          borderTopRightRadius: 40,
-          borderBottomRightRadius: 40,
-          borderWidth: 4,
+          // borderTopRightRadius: 40,
+          // borderBottomRightRadius: 40,
+          // borderWidth: 4,
           borderColor: Colors.light_blue,
-          backgroundColor: Colors.morelight_yellow
-        }
+          backgroundColor: Colors.morelight_yellow,
+          // overflow: 'hidden'
+        },
+        drawerType:'front'
       }}
-
       drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
       <Drawer.Screen
