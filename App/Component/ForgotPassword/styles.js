@@ -86,7 +86,11 @@ export const styles = StyleSheet.create({
         width: 20,
         height: 20,
         resizeMode: 'contain',
-        // tintColor:Colors.light_yellow
+        ...Platform.select({
+            android:{
+                tintColor:Colors.light_yellow
+            }
+        })
     },
     input: {
         color: Colors.text_color,

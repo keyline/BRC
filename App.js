@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { StatusBar } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import SplashScreen from 'react-native-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
@@ -6,6 +6,7 @@ import AuthStack from './App/Navigation/AuthStack';
 import DrawerStack from './App/Navigation/DrawerStack';
 import { clearAllData, getAccessToken, getUserData } from './App/Services/AsyncStorage';
 import AuthContext from './App/Services/Context';
+import { Colors } from './App/Utils/Colors';
 
 const App = () => {
 
@@ -50,7 +51,7 @@ const App = () => {
       }))
     }
     let accesstoken = await getAccessToken();
-    console.log('token', accesstoken)
+    // console.log('token', accesstoken)
     if (accesstoken) {
       setState(prevState => ({
         ...prevState,
@@ -85,6 +86,7 @@ const App = () => {
   return (
     <AuthContext.Provider value={{ onGetStoreData, onClearStoreData, allData: state }}>
       <NavigationContainer>
+        <StatusBar backgroundColor={Colors.brown} barStyle={'light-content'} />
         {state.isLogin ?
           <DrawerStack />
           :

@@ -1,4 +1,4 @@
-import { StyleSheet ,Platform} from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { HEIGHT, WIDTH } from '../../Services/constants';
 import { Colors } from '../../Utils/Colors';
 import { Font_Family } from '../../Utils/Fonts';
@@ -25,8 +25,8 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center',
         ...Platform.select({
-            ios:{
-                paddingVertical:'4%'
+            ios: {
+                paddingVertical: '4%'
             }
         })
     },
@@ -52,6 +52,10 @@ export const styles = StyleSheet.create({
         width: 25,
         height: 25,
         resizeMode: 'contain',
-        // tintColor: Colors.light_yellow
+        ...Platform.select({
+            android: {
+                tintColor: Colors.light_yellow
+            }
+        })
     },
 })

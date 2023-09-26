@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { Colors } from "../../Utils/Colors";
 import { Font_Family } from "../../Utils/Fonts";
 import { CommonStyle } from "../../Utils/CommonStyles";
@@ -50,6 +50,13 @@ export const styles = StyleSheet.create({
         width: '90%',
         alignSelf: 'center',
         marginVertical: '2%'
+    },
+    borderNew: {
+        borderColor: Colors.light_yellow,
+        borderWidth: 0.8,
+        width: '90%',
+        alignSelf: 'center',
+        marginTop: '2%'
     },
     subheadingText: {
         alignSelf: 'center',
@@ -109,7 +116,7 @@ export const styles = StyleSheet.create({
     },
     listHeadingtxtSelected: {
         fontFamily: Font_Family.NunitoSans_Bold,
-        color: Colors.white
+        color: Colors.white,
     },
     tableListContainer: {
         // paddingHorizontal: '5%',

@@ -70,14 +70,14 @@ const SportsBooking = ({ navigation }) => {
         }
     };
 
-    useFocusEffect(
-        useCallback(() => {
-            const unsubscribe = onGetSportList();
-            return () => unsubscribe
-        }, [navigation])
-    )
+    // useFocusEffect(
+    //     useCallback(() => {
+    //         const unsubscribe = onGetSportList();
+    //         return () => unsubscribe
+    //     }, [navigation])
+    // )
 
-    const onGetSportList = useCallback(async () => {
+    const onGetSportList = useCallback(async (bookingDate = state.date) => {
         try {
             setState(prevState => ({
                 ...prevState,
@@ -86,6 +86,7 @@ const SportsBooking = ({ navigation }) => {
             let datas = {
                 key: KEY,
                 source: SOURCE,
+                booking_date: bookingDate,
                 app_access_token: state.accessToken
             }
             const response = await Apis.sportsList(datas);
@@ -99,6 +100,8 @@ const SportsBooking = ({ navigation }) => {
                         return { label: value, value: key }
                     })
                     setSportList(updatedList);
+                } else {
+                    setSportList([]);
                 }
                 // setState(prevState => ({
                 //     ...prevState,
@@ -184,12 +187,16 @@ const SportsBooking = ({ navigation }) => {
                 date: dateConvertYear(time),
                 dateErr: '',
                 datePicker: false,
+                sports: '',
                 baMember2: '',
                 baMember3: '',
                 baMember4: '',
-                timeSlots: ''
+                timeSlots: '',
+                timeSlotsList: []
             }))
-            GetTimeSlots(dateConvertYear(time))
+            setSqPlayerList([]);
+            onGetSportList(dateConvertYear(time))
+            // GetTimeSlots(dateConvertYear(time))
         } else {
             setState(prevState => ({
                 ...prevState,
@@ -205,8 +212,10 @@ const SportsBooking = ({ navigation }) => {
             baMember2: '',
             baMember3: '',
             baMember4: '',
-            timeSlots: ''
+            timeSlots: '',
+            timeSlotsList: []
         }))
+        setSqPlayerList([]);
         GetTimeSlots(state.date, value?.value)
     })
 
@@ -548,20 +557,22 @@ const SportsBooking = ({ navigation }) => {
                                     value={state.date}
                                     error={state.dateErr ? 'Select Date' : ''}
                                 />
-                                <View style={{ paddingTop: '5%', paddingBottom: '10%', paddingHorizontal: '1.5%', zIndex: 99 }}>
-                                    <CustomDropDown
-                                        // name={'Dining Space'}
-                                        placeholder={'Select Sports'}
-                                        items={sportList}
-                                        value={state.sports}
-                                        open={sportsPicker}
-                                        dropDownDirection={'AUTO'}
-                                        setItems={setSportList}
-                                        setOpen={setsportsPicker}
-                                        onChangeValue={onChangeSports}
-                                        error={state.sportsErr ? 'Select Sports' : ''}
-                                    />
-                                </View>
+                                {(state.date) && (
+                                    <View style={{ paddingTop: '5%', paddingBottom: '10%', paddingHorizontal: '1.5%', zIndex: 99 }}>
+                                        <CustomDropDown
+                                            // name={'Dining Space'}
+                                            placeholder={'Select Sports'}
+                                            items={sportList}
+                                            value={state.sports}
+                                            open={sportsPicker}
+                                            dropDownDirection={'AUTO'}
+                                            setItems={setSportList}
+                                            setOpen={setsportsPicker}
+                                            onChangeValue={onChangeSports}
+                                            error={state.sportsErr ? 'Select Sports' : ''}
+                                        />
+                                    </View>
+                                )}
                                 {/* {(state.sports == "1" && memberList) && (
                                     <View>
                                         <Text style={styles.subheadingText}>Member List</Text>
@@ -621,9 +632,8 @@ const SportsBooking = ({ navigation }) => {
                                 {(state.sports == "2" && sqPlayerList) && (
                                     <>
                                         <View style={styles.border} />
-                                        <View style={{zIndex:9}}>
                                         <Text style={styles.subheadingText}>Select Player Type</Text>
-                                        <View style={{ marginTop: '2%', marginBottom: '2%', paddingHorizontal: '1.5%' }}>
+                                        <View style={{ marginTop: '2%', marginBottom: '0%', paddingHorizontal: '1.5%',zIndex:99 }}>
                                             <CustomDropDown
                                                 placeholder={'Select Player Type'}
                                                 items={sqPlayerList}
@@ -635,27 +645,26 @@ const SportsBooking = ({ navigation }) => {
                                                 onChangeValue={onChangePlayerType}
                                                 error={state.sqPlayertypeErr ? 'Select Player Type' : ''}
                                             />
-                                        </View>
-                                        </View>
-                                            {(state.sqPlayertype == "2" && memberList) && (
-                                                <View style={{ marginTop: '5%', paddingHorizontal: '1.5%' }}>
-                                                    <CustomDropDown
-                                                        placeholder={'Select Opponent Member'}
-                                                        items={memberList}
-                                                        value={state.sqMember}
-                                                        open={sqMemberPicker}
-                                                        dropDownDirection={'AUTO'}
-                                                        setItems={setMemberList}
-                                                        setOpen={setsqMemberPicker}
-                                                        onChangeValue={onChangesqMember}
-                                                        searchable={true}
-                                                        listMode={'MODAL'}
-                                                        searchPlaceholder={'Search Opponent Member'}
-                                                        error={state.sqMemberErr ? 'Select Opponent Member' : ''}
-                                                    />
-                                                </View>
-                                            )}
-                                    </>
+                                        </View>                               
+                                {(state.sqPlayertype == "2" && memberList) && (
+                                    <View style={{ marginTop: '2%', paddingHorizontal: '1.5%',zIndex:9 }}>
+                                        <CustomDropDown
+                                            placeholder={'Select Opponent Member'}
+                                            items={memberList}
+                                            value={state.sqMember}
+                                            open={sqMemberPicker}
+                                            dropDownDirection={'AUTO'}
+                                            setItems={setMemberList}
+                                            setOpen={setsqMemberPicker}
+                                            onChangeValue={onChangesqMember}
+                                            searchable={true}
+                                            listMode={'MODAL'}
+                                            searchPlaceholder={'Search Opponent Member'}
+                                            error={state.sqMemberErr ? 'Select Opponent Member' : ''}
+                                        />
+                                    </View>
+                                )}
+</>
                                 )}
                                 {(state.timeSlotsList && state.timeSlotsList.length > 0) && (
                                     <>

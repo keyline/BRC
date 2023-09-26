@@ -1,21 +1,21 @@
-import { StyleSheet ,Platform} from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { Colors } from "../../Utils/Colors";
 import { Font_Family } from "../../Utils/Fonts";
 import { HEIGHT, WIDTH } from "../../Services/constants";
 
 export const styles = StyleSheet.create({
     container: {
-        width: WIDTH*0.75,
+        width: WIDTH * 0.75,
         alignSelf: 'center',
-        marginVertical:HEIGHT*0.009
+        marginVertical: HEIGHT * 0.009
     },
     headingtext: {
         color: Colors.text_color,
         fontFamily: Font_Family.NunitoSans_Bold,
-        marginBottom: HEIGHT * 0.01, 
-        marginHorizontal:WIDTH*0.02
+        marginBottom: HEIGHT * 0.01,
+        marginHorizontal: WIDTH * 0.02
     },
-    content:{
+    content: {
         borderWidth: 1,
         borderRadius: 30,
         borderColor: Colors.border_color,
@@ -23,8 +23,8 @@ export const styles = StyleSheet.create({
         paddingHorizontal: '6%',
         alignItems: 'center',
         ...Platform.select({
-            ios:{
-                paddingVertical:'4%'
+            ios: {
+                paddingVertical: '4%'
             }
         })
     },
@@ -43,13 +43,17 @@ export const styles = StyleSheet.create({
         width: 25,
         height: 25,
         resizeMode: 'contain',
-        // tintColor: Colors.light_yellow
+        ...Platform.select({
+            android: {
+                tintColor: Colors.light_yellow
+            }
+        })
     },
     errName: {
         color: 'red',
         alignSelf: 'flex-start',
-        fontFamily:Font_Family.NunitoSans_Regular,
-        marginTop:HEIGHT*0.004,
-        marginHorizontal:WIDTH*0.02
+        fontFamily: Font_Family.NunitoSans_Regular,
+        marginTop: HEIGHT * 0.004,
+        marginHorizontal: WIDTH * 0.02
     },
 })

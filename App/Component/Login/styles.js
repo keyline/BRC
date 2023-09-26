@@ -77,8 +77,8 @@ export const styles = StyleSheet.create({
         paddingHorizontal: '6%',
         alignItems: 'center',
         ...Platform.select({
-            ios:{
-                paddingVertical:'4%'
+            ios: {
+                paddingVertical: '4%'
             }
         })
     },
@@ -91,13 +91,17 @@ export const styles = StyleSheet.create({
         color: Colors.text_color,
         marginLeft: 15,
         width: '85%',
-        fontFamily:Font_Family.NunitoSans_Regular
+        fontFamily: Font_Family.NunitoSans_Regular
     },
     eyeicon: {
         width: 25,
         height: 25,
         resizeMode: 'cover',
-        // tintColor: Colors.light_yellow
+        ...Platform.select({
+            android: {
+                tintColor: Colors.light_yellow
+            }
+        })
     },
     forgottext: {
         marginVertical: 15,
@@ -105,6 +109,6 @@ export const styles = StyleSheet.create({
         marginHorizontal: 35,
         // fontWeight: 'bold',
         color: Colors.black,
-        fontFamily:Font_Family.NunitoSans_Bold
+        fontFamily: Font_Family.NunitoSans_Bold
     },
 })
