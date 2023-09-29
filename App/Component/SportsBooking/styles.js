@@ -108,7 +108,7 @@ export const styles = StyleSheet.create({
     diningLogoSelected: {
         width: 50,
         height: 50,
-        tintColor: Colors.white
+        // tintColor: Colors.white
     },
     listHeadingtxt: {
         fontFamily: Font_Family.NunitoSans_Bold,

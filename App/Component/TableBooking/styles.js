@@ -68,6 +68,10 @@ export const styles = StyleSheet.create({
         height: 50,
         tintColor: Colors.white
     },
+    diningLogoOff: {
+        width: 50,
+        height: 50,
+    },
     listContainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -150,11 +154,22 @@ export const styles = StyleSheet.create({
         borderColor: Colors.light_blue,
         backgroundColor: Colors.light_blue
     },
+    tableListContentOff: {
+        width: '48%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: '4%',
+        borderWidth: 2,
+        borderRadius: 10,
+        paddingVertical: '4%',
+        borderColor: Colors.lightGrey,
+        backgroundColor: Colors.lightGrey
+    },
     checkContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         alignSelf: 'center',
-        marginVertical:'4%'
+        marginVertical: '4%'
     },
     aceptText: {
         fontFamily: Font_Family.NunitoSans_Bold,

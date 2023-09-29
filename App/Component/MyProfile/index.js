@@ -106,7 +106,7 @@ const MyProfile = ({ navigation }) => {
                                     <View style={CommonStyle.border} />
                                     <View style={styles.infocontent}>
                                         <NameValue name={'Office'} value={state?.userdata?.office_address} />
-                                        <NameValue name={'Phone'} value={state?.userdata?.Phone} />
+                                        <NameValue name={'Phone'} value={state?.userdata?.office_phone} />
                                         <NameValue name={'Mobile'} value={state?.userdata?.mobile} />
                                         <NameValue name={'E-mail'} value={state?.userdata?.Email} />
                                     </View>

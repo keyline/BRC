@@ -306,8 +306,8 @@ const TableBooking = ({ navigation }) => {
 
     const onTableSelect = useCallback(async (item) => {
         var myArr = state.tableList
-        if (item.table_id) {
-            let tableIndex = myArr.findIndex(obj => obj.table_id == item.table_id)
+        // if (item.table_id) {
+            let tableIndex = myArr.findIndex(obj => obj.table_id == item?.table_id)
             if (tableIndex != -1) {
                 let value = myArr[tableIndex].isSelected
                 myArr[tableIndex].isSelected = !value
@@ -317,7 +317,7 @@ const TableBooking = ({ navigation }) => {
                     tableErr: ''
                 }))
             }
-        }
+        // }
     })
 
     const selectedTableLength = useCallback(async () => {
@@ -353,7 +353,9 @@ const TableBooking = ({ navigation }) => {
         if (myArr.length > 0) {
             let filterArray = myArr.filter(obj => obj.isSelected == true);
             let tableIdArray = filterArray.map(obj => obj.table_id)
-            console.log('tableIdArray', tableIdArray);
+            if (__DEV__) {
+                console.log('tableIdArray', tableIdArray);
+            }
             return tableIdArray;
         } else {
             return [];
@@ -393,16 +395,16 @@ const TableBooking = ({ navigation }) => {
                 if (__DEV__) {
                     console.log('BookNowResponse', JSON.stringify(response))
                 }
-                // setState(prevState => ({
-                //     ...prevState,
-                //     btnLoading: false
-                // }))
                 Toast.show(response.message, Toast.LONG);
                 if (response.status) {
                     await setInitialState();
                     scrollToTop();
                     navigation.navigate('MyProfile');
                 }
+                setState(prevState => ({
+                    ...prevState,
+                    btnLoading: false
+                }))
             } catch (error) {
                 setState(prevState => ({
                     ...prevState,
@@ -434,7 +436,7 @@ const TableBooking = ({ navigation }) => {
                                     value={state.date}
                                     error={state.dateErr ? 'Select Date' : ''}
                                 />
-                                <View style={{ marginVertical: '5%', paddingHorizontal: '1.5%',zIndex:99 }}>
+                                <View style={{ marginVertical: '5%', paddingHorizontal: '1.5%', zIndex: 99 }}>
                                     <CustomDropDown
                                         // name={'Dining Space'}
                                         placeholder={'Select Dining Space'}
