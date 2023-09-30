@@ -9,12 +9,12 @@ const TimeSlotList = ({ item, onPress, SelectedItem }) => {
         <>
             {item?.available == "not_available" ?
                 <View activeOpacity={0.5} style={styles.tableListContentNotaval}>
-                    <Image source={ImagePath.sports} style={styles.diningLogoSelected} />
+                    <Image source={ImagePath.sports_white} style={styles.diningLogoSelected} />
                     <Text numberOfLines={1} style={styles.listHeadingtxtSelected}>{item?.time_period}</Text>
                 </View>
                 :
                 <TouchableOpacity activeOpacity={0.5} onPress={() => onPress(item)} style={item == SelectedItem ? styles.tableListContentSelected : styles.tableListContent}>
-                    <Image source={ImagePath.sports} style={item == SelectedItem ? styles.diningLogoSelected : styles.diningLogo} />
+                    <Image source={item == SelectedItem ? ImagePath.sports_white : ImagePath.sports} style={item == SelectedItem ? styles.diningLogoSelected : styles.diningLogo} />
                     <Text numberOfLines={1} style={item == SelectedItem ? styles.listHeadingtxtSelected : styles.listHeadingtxt}>{item?.time_period}</Text>
                 </TouchableOpacity>
             }
