@@ -107,7 +107,7 @@ const TableBooking = ({ navigation }) => {
         }
     }, [state.date])
 
-    const onGetDiningSpace = useCallback(async (date) => {
+    const onGetDiningSpace = useCallback(async (date = state.date) => {
         try {
             let datas = {
                 key: KEY,
@@ -153,7 +153,7 @@ const TableBooking = ({ navigation }) => {
             }
             Toast.show('Something Went Wrong', Toast.LONG);
         }
-    }, [state.date])
+    })
 
     const onChangeDiningSpace = useCallback(async (value) => {
         setState(prevState => ({
@@ -209,7 +209,7 @@ const TableBooking = ({ navigation }) => {
             }
             Toast.show('Something Went Wrong', Toast.LONG);
         }
-    }, [state.diningSpace])
+    })
 
     const onSelectSlot = useCallback(async (item) => {
         if (state.timeSlots != item) {
@@ -307,16 +307,16 @@ const TableBooking = ({ navigation }) => {
     const onTableSelect = useCallback(async (item) => {
         var myArr = state.tableList
         // if (item.table_id) {
-            let tableIndex = myArr.findIndex(obj => obj.table_id == item?.table_id)
-            if (tableIndex != -1) {
-                let value = myArr[tableIndex].isSelected
-                myArr[tableIndex].isSelected = !value
-                setState(prevState => ({
-                    ...prevState,
-                    tableList: myArr,
-                    tableErr: ''
-                }))
-            }
+        let tableIndex = myArr.findIndex(obj => obj.table_id == item?.table_id)
+        if (tableIndex != -1) {
+            let value = myArr[tableIndex].isSelected
+            myArr[tableIndex].isSelected = !value
+            setState(prevState => ({
+                ...prevState,
+                tableList: myArr,
+                tableErr: ''
+            }))
+        }
         // }
     })
 
