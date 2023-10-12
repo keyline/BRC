@@ -1,5 +1,5 @@
-import { StatusBar } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { StatusBar, Alert, Linking, Platform } from 'react-native'
+import React, { useCallback, useEffect, useState } from 'react'
 import SplashScreen from 'react-native-splash-screen';
 import { NavigationContainer } from '@react-navigation/native';
 import AuthStack from './App/Navigation/AuthStack';
@@ -7,6 +7,7 @@ import DrawerStack from './App/Navigation/DrawerStack';
 import { clearAllData, getAccessToken, getUserData } from './App/Services/AsyncStorage';
 import AuthContext from './App/Services/Context';
 import { Colors } from './App/Utils/Colors';
+import VersionCheck from 'react-native-version-check';
 
 const App = () => {
 
@@ -82,6 +83,36 @@ const App = () => {
       }
     }
   }
+
+  useEffect(() => {
+    VersionCheck.needUpdate()
+      .then(async ({ isNeeded, storeUrl, currentVersion, latestVersion }) => {
+        if (__DEV__) {
+          console.log('StoreUrl', storeUrl)
+        }
+        if (isNeeded) {
+          Alert.alert(
+            'Update Available',
+            `A new version of the app is available. Do you want to update now?`,
+            [
+              {
+                text: 'Update Now',
+                onPress: () => Linking.openURL(storeUrl),
+                style: 'destructive'
+              },
+            ],
+            { cancelable: false }
+          )
+        } else {
+          if (__DEV__) {
+            console.log(`You have the latest version (${currentVersion}).`);
+          }
+        }
+      })
+      .catch((error) => {
+        console.error('Error checking for updates:', error);
+      });
+  }, []);
 
   return (
     <AuthContext.Provider value={{ onGetStoreData, onClearStoreData, allData: state }}>

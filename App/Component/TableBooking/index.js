@@ -17,6 +17,7 @@ import { CommonStyle } from '../../Utils/CommonStyles'
 import SingleButton from '../../Container/SingleButton'
 import TableList from './TableList'
 import CheckBox from '@react-native-community/checkbox'
+import { Colors } from '../../Utils/Colors'
 
 const TableBooking = ({ navigation }) => {
 
@@ -500,6 +501,9 @@ const TableBooking = ({ navigation }) => {
                                                                     value={state.checkBoxValue}
                                                                     disabled={false}
                                                                     onValueChange={onChangeCheckbox}
+                                                                    tintColors={{ true: Colors.brown, false: Colors.black }}
+                                                                    tintColor={Colors.black}
+                                                                    onCheckColor={Colors.brown}
                                                                 />
                                                                 <Text style={styles.aceptText}>  I accept the <Text onPress={onTermsCondition} style={styles.termstext}>Terms and Conditions</Text></Text>
                                                             </View>

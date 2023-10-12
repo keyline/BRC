@@ -2,6 +2,7 @@ import { View, Text, Image, TextInput } from 'react-native'
 import React, { memo } from 'react'
 import { styles } from './styles'
 import { CommonStyle } from '../../Utils/CommonStyles'
+import { Colors } from '../../Utils/Colors'
 
 const InputText = ({ name, leftIcon, value, placeholder,keyboardType, onChangeText, editable, multiline,error }) => {
     return (
@@ -21,6 +22,7 @@ const InputText = ({ name, leftIcon, value, placeholder,keyboardType, onChangeTe
                     editable={editable ? editable : true}
                     multiline={multiline ? multiline : false}
                     keyboardType={keyboardType ? keyboardType : 'default'}
+                    placeholderTextColor={Colors.border_grey}
                 />
             </View>
             {error && (

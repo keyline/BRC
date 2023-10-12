@@ -127,6 +127,9 @@ const MakePayment = ({ navigation }) => {
                                         value={state.checkValue}
                                         disabled={false}
                                         onChange={onChangeCheckBox}
+                                        tintColors={{ true: Colors.brown, false: Colors.black }}
+                                        tintColor={Colors.black}
+                                        onCheckColor={Colors.brown}
                                     />
                                     <Text style={styles.lighttext}>  Pay using HDFC</Text>
                                 </View>

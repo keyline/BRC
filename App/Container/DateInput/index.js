@@ -2,6 +2,7 @@ import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native'
 import React, { memo } from 'react'
 import { styles } from './styles'
 import { ImagePath } from '../../Utils/ImagePath'
+import { Colors } from '../../Utils/Colors'
 
 const DateInput = ({ onPress, name, leftImage, placeholder, value, error }) => {
     return (
@@ -19,6 +20,7 @@ const DateInput = ({ onPress, name, leftImage, placeholder, value, error }) => {
                     // onChangeText={(e) => onChangeText(e)}
                     editable={false}
                     value={value}
+                    placeholderTextColor={Colors.border_grey}
                 />
                 <Image source={ImagePath.calendar} style={styles.eyeicon} />
             </TouchableOpacity>

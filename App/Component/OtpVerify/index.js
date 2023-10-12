@@ -150,7 +150,7 @@ const OtpVerify = ({ navigation, route }) => {
                         <View style={styles.otpContainer}>
                             <OTPInputView
                                 pinCount={4}
-                                autoFocusOnLoad
+                                autoFocusOnLoad={false}
                                 onCodeChanged={code => onChangeOtp(code)}
                                 style={styles.otp}
                                 codeInputFieldStyle={styles.underlineStyleBase}
